@@ -31,8 +31,7 @@ haicc docs info/get hdlc --flags help
   mrepo's own info (`mrepo-base-info`'s `get`, at `<protocol>/<action>`).
 - **Short, natural language, a fixed place each**: what it does, the
   door's answer, the arguments, the command to run it, where to read
-  more; the same as lines (`answer`), what the `haicc` command prints;
-  the record as it is with `haicc --raw`.
+  more; the record as it is with `haicc --raw`.
 
 ## Tests
 

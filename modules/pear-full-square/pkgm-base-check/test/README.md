@@ -27,3 +27,15 @@ The tests of pkgm-base-check, a section per file, each test by its name.
 - the template itself: no test of its own asked, its folder documenting one left alone, no pin
 - a package that breaks each: its files, its sets, a test that is not a unit
 - full holds modules where modules are carried
+
+## `patterns.test.js`
+
+- patterns: read from a package's files; a program started by a hook; a platform and its component
+- how-tos: each naming its pattern; a pattern without one, a problem
+
+## `tests.test.js`
+
+- names: quoted, escaped, a template a pattern; a method named test is none
+- a page read: a section a file, an entry over several lines one
+- a page that says what is tested: none
+- a page that drifted: each difference a problem; no page, one

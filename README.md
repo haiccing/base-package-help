@@ -1,39 +1,34 @@
 # base-package-help
 
-The help protocol: an mrepo's help, extracted from the READMEs of the packages it links and read by URI.
+The help protocol: a command explained where it would run, not executed.
 
-An mrepo that links it has a `help` layer. `help/extract` fills it from the
-READMEs the linked packages carry, each at the URI it documents, with an
-index; `help/get <URI>` reads one, with the one-liner of each link below
-it, so the help can be walked down from the root.
+`--flags help` on any command makes it `help/annotate` at the same URI:
+the mrepo the command would have run in answers what it does, whether
+it is taken there and now, its arguments, the command to run it and
+where to read more; nothing of the command is executed. Linked wherever
+`info` is: its pages are what it reads.
 
-| | |
-|---|---|
-| [mrepo/](mrepo/) | its part of the structure: the help layer |
-| [test/](test/) | its tests: its protocol as mounted, and the generic ones |
-| [test-reports/](test-reports/) | the report of its last pre-release |
-| [modules/](modules/) | its code, assembled: ours and the third-party code |
+## Links
 
-## Commands
+- [annotate](modules/pear-full-square/mrepo-base-help/external/annotate/)
+- [howto](howto/)
+- [schemas](schemas/)
+- [test](test/)
+- [test-reports](test-reports/)
+- [modules](modules/)
 
-```
-haicc . help/extract
-haicc . help/get
-haicc . help/get . packages oneliner
-haicc host help/get . protocols detail
-```
+## Config
 
-- `help/get . [<subject>] [<level> | <section>]`: the subject is a URI
-  from the mrepo's root, the mrepo itself when none; the levels are `oneliner`,
-  `summary`, the default, and `detail`; or one section, by its title.
-- `help/extract`: the help layer written again from the linked packages.
-  Run by a hook: at `boot` in an mrepo without a service, at the
-  service's `initialise` in one that has it.
+The `help` protocol's, in `protocol.js`; no state.
+
+| action | offered at | arguments |
+|---|---|---|
+| `annotate`, the default | the command's URI (`**`) | the command's `<protocol>/<action>`, then its arguments |
 
 ## Package
 
 - `protocol.js`: the `help` protocol, its config and its actions, from
   `mrepo-base-help`.
+- `schemas/`: its schemas, `annotate-answer`, `help/annotate`'s answer,
+  registered when it is deployed.
 - `main.js`: the dispatcher, the bundle's main, generated.
-
-Written from [splectrum/splectrum-dev-env-3-mycelium](https://github.com/splectrum/splectrum-dev-env-3-mycelium).

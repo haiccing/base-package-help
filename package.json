@@ -1,6 +1,6 @@
 {
   "name": "base-package-help",
-  "description": "Package: the help protocol, an mrepo's help extracted from its packages' READMEs and read by URI.",
+  "description": "Package: the help protocol, a command explained where it would run, not executed.",
   "private": true,
   "license": "MIT",
   "type": "module",
@@ -10,8 +10,8 @@
     "pear-full-square/pkgm-base-check"
   ],
   "template": {
-    "repository": "haiccing/package-docs-package",
-    "commit": "6f78874fff7d626052336394f35071995a040d47"
+    "repository": "haiccing/base-docs-package",
+    "commit": "d6d99cffc82361d9c15ae86fd723045537ba63b3"
   },
   "scripts": {
     "test": "bare test/run.js"

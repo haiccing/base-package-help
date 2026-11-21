@@ -1,23 +1,20 @@
-// base-package-help's protocol: help, an mrepo's help extracted from its
-// packages' READMEs and read by URI. Linked into an mrepo, its config is
-// loaded by the runtime and its actions run; its structure part brings the
-// help layer.
-//   get       the README documenting a URI, at a level or one section
-//   extract   the help layer written from the linked packages' READMEs
-// The work is mrepo-base-help's; here the mounting.
-import { get, extractAction } from './modules/pear-full-square/mrepo-base-help/index.js'
+// base-package-help's protocol: help, a command explained where it would
+// run, not executed. Linked into an mrepo, its config is loaded by the
+// runtime and its actions run. The config is the package's; the work is
+// mrepo-base-help's.
+import { annotate } from './modules/pear-full-square/mrepo-base-help/index.js'
 
 export const protocols = {
   help: {
     package: 'haiccing/base-package-help',
-    description: 'The mrepo\'s help, read by URI.',
+    description: 'A command explained where it would run, not executed: what it does, whether it is taken here and now, its arguments.',
+    default: 'annotate',
     actions: {
-      get: { uris: ['.'], args: ['subject?'], description: 'The README documenting a subject, a URI from the mrepo\'s root (none: the mrepo itself), at a level (oneliner, summary, detail) or one section, by its title.' },
-      extract: { uris: ['.'], description: 'The help layer extracted from the linked packages\' READMEs.' }
+      annotate: { uris: ['**'], args: ['command', 'arguments?'], description: 'A command explained at its URI, not executed (--flags help on a command is it): what it does, the door\'s answer here and now, its arguments against those its action names, the command to run it, where to read more.' }
     }
   }
 }
 
 export const actions = {
-  help: { get, extract: extractAction }
+  help: { annotate }
 }

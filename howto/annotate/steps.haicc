@@ -1,0 +1,16 @@
+# scene: the host in service
+. boot/deploy host haiccing/base-component-haicc
+# step: any command, the flag last: answered, not run
+host crud/read swarms --flags help
+# expect: "help":"crud/read swarms"
+# step: at the root, as the command line writes it there
+. boot/deploy docs haiccing/base-component-docs --flags help
+# expect: "help":"boot/deploy docs haiccing/base-component-docs"
+. crud/read .
+# expect: "children":["host"]
+# step: the same, asked directly: the command's <protocol>/<action> and arguments after the URI
+host help/annotate swarms crud/read
+# expect: "help":"crud/read swarms"
+# step: its page, to read more
+host info/get haiccing/base-package-crud/read
+# expect: "keyword":"haiccing/base-package-crud/read"

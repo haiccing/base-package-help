@@ -8,13 +8,4 @@ why, its arguments, the command to run it, where to read more.
 
 ## Steps
 
-```sh
-# any command, the flag last: answered, not run
-haicc host crud/read swarms --flags help
-# at the root, as the command line writes it there
-haicc . boot/deploy docs haiccing/base-component-docs --flags help
-# the same, asked directly: the command's <protocol>/<action> and arguments after the URI
-haicc host help/annotate swarms crud/read
-# its page, to read more
-haicc host info/get haiccing/base-package-crud/read
-```
+The script, [steps.haicc](steps.haicc): each line as typed after `haicc`, what it answers under it; run with `howto/run`, shown here at info extraction.
